@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/searchBy.css}">
+
+  <title>Search by builds</title>
+  <script>
+    function showSearch(){
+      document.getElementById("home2").style.display="flex";
+      document.getElementById("searchForm").focus();
+      document.getElementById("location").focus();
+
+      document.body.scrollIntoView(0);
+
+    }
+    function showTrips(){
+      document.getElementById("home2").style.display="none";
+      document.getElementById("trips").style.display="grid";
+      document.getElementById("trips").focus();
+    }
+  </script>
+</head>
+<body>
+<header id="everything">
+  <a th:href="@{index}" class="logo"><img th:src="@{/images/logo.png}" alt = "logo"></a>
+
+  <div class="bx bx-menu" id="menu-icon"></div>
+
+  <ul class="navbar">
+
+  </ul>
+  <div class="header-btn">
+    <a th:href="@{Register}" class="sign-up" >Sign Up</a>
+    <a th:href="@{loginPage}" class="sign-in" >Sign In</a>
+  </div>
+</header>
+<div class="space">
+  <p></p>
+</div>
+
+
+<section class="services" id="services">
+  <div class="heading">
+    <span>Browse By Langauge and Culture</span>
+    <h1>Find the perfect Peer for you <br>From most popular Trips </h1>
+  </div>
+
+  <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js}"></script>
+
+  <div class="services-container2">
+
+    <div class="box" id="English">
+      <div class="box-img">
+        <img th:src="@{/images/english.jpg}" alt="English">
+      </div>
+      <h2></h2>
+      <h3>English</h3>
+      <h2></h2>
+      <button class="btn" value="English" onclick="showSearch()">English</button>
+    </div>
+
+    <div class="box" id="Turkish">
+      <div class="box-img">
+        <img th:src="@{/images/turkish.jpg}" alt="Turkish">
+      </div>
+      <h2></h2>
+      <h3>Turkish</h3>
+      <h2></h2>
+      <button class="btn" value="Turkish" onclick="showSearch()">Turkish</button>
+    </div>
+
+    <div class="box" id="Italian">
+      <div class="box-img">
+        <img th:src="@{/images/italian.jpg}" alt="Italian">
+      </div>
+      <h2></h2>
+      <h3>Italian</h3>
+      <h2></h2>
+      <button class="btn" value="Italian" onclick="showSearch()">Italian</button>
+    </div>
+    <div class="box" id="French">
+      <div class="box-img">
+        <img th:src="@{/images/french2.jpg}" alt="French">
+      </div>
+      <h2></h2>
+      <h3>French</h3>
+      <h2></h2>
+      <button class="btn" value="French" onclick="showSearch()">French</button>
+    </div>
+    <div class="box" id="Spanish">
+      <div class="box-img">
+        <img th:src="@{/images/spanish.jpg}" alt="Spanish">
+      </div>
+      <h2></h2>
+      <h3>Spanish</h3>
+      <h2></h2>
+      <button class="btn" value="Spanish" onclick="showSearch()">Spanish</button>
+    </div>
+    <script type="text/javascript">
+      $("button").click(function() {
+        var fired_button = $(this).val();
+        document.getElementById("text").style.display = "block";
+        document.getElementById("theLocation").textContent=fired_button;
+        document.getElementById("trips").style.display="none";
+
+        if(fired_button=="English") {
+          var ignoreClickOnMeElement = document.getElementById('English');
+          ignoreClickOnMeElement.style.transform="scale(1.05)";
+          ignoreClickOnMeElement.style.border="1px solid blue";
+
+          document.addEventListener('click', function(event) {
+            var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+            if (!isClickInsideElement) {
+              ignoreClickOnMeElement.style.transform="scale(1)";
+              ignoreClickOnMeElement.style.border="none";
+            }
+          });
+        }
+
+        if(fired_button=="Turkish") {
+          var ignoreClickOnMeElement = document.getElementById('Turkish');
+          ignoreClickOnMeElement.style.transform="scale(1.05)";
+          ignoreClickOnMeElement.style.border="1px solid blue";
+          document.addEventListener('click', function(event) {
+            var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+            if (!isClickInsideElement) {
+              //Do something click is outside specified element
+              ignoreClickOnMeElement.style.transform="scale(1)";
+              ignoreClickOnMeElement.style.border="none";
+
+            }
+          });
+        }
+
+        if(fired_button=="Italian") {
+          var ignoreClickOnMeElement = document.getElementById('Italian');
+          ignoreClickOnMeElement.style.transform="scale(1.05)";
+          ignoreClickOnMeElement.style.border="1px solid blue";
+
+          document.addEventListener('click', function(event) {
+            var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+            if (!isClickInsideElement) {
+              //Do something click is outside specified element
+              ignoreClickOnMeElement.style.transform="scale(1)";
+              ignoreClickOnMeElement.style.border="none";
+
+            }
+          });
+        }
+
+        if(fired_button=="French") {
+          var ignoreClickOnMeElement = document.getElementById('French');
+          ignoreClickOnMeElement.style.transform="scale(1.05)";
+          ignoreClickOnMeElement.style.border="1px solid blue";
+
+          document.addEventListener('click', function(event) {
+            var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+            if (!isClickInsideElement) {
+              //Do something click is outside specified element
+              ignoreClickOnMeElement.style.transform="scale(1)";
+              ignoreClickOnMeElement.style.border="none";
+
+            }
+          });
+        }
+
+        if(fired_button=="Spanish") {
+          var ignoreClickOnMeElement = document.getElementById('Spanish');
+          ignoreClickOnMeElement.style.transform="scale(1.05)";
+          ignoreClickOnMeElement.style.border="1px solid blue";
+
+          document.addEventListener('click', function(event) {
+            var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+            if (!isClickInsideElement) {
+              //Do something click is outside specified element
+              ignoreClickOnMeElement.style.transform="scale(1)";
+              ignoreClickOnMeElement.style.border="none";
+
+            }
+          });
+        }
+      });
+    </script>
+  </div>
+</section>
+
+<div class="text" id="text">
+  <h1>Join <span id="theLocation">trips</span></h1>
+</div>
+
+<section class="home2" id="home2" style="display: none" >
+  <form action="" id="searchForm" tabindex="0">
+    <div class="input-box">
+      <span>Specifically</span>
+      <input type="search" name="" id="location" placeholder="More Specifically">
+    </div>
+    <div class="input-box">
+      <span>Trip Date</span>
+      <input type="date" name="" id="start_date">
+    </div>
+    <div class="input-box">
+      <span>Return-Date</span>
+      <input type="date" name="" id="return_date">
+    </div>
+    <input type="button" name="" class="btn" value="Submit" onclick="showTrips()">
+  </form>
+</section>
+
+<section class="trips" id="trips" tabindex="-1">
+  <div class="heading">
+    <span>Search Results</span>
+    <!-- <h1>Popular Deals <br>From Top Rated Owners</h1> -->
+  </div>
+  <div class="services-container2">
+    <div class="box">
+      <div class="box-img">
+        <img th:src="@{/images/changi.jpg}" alt="changi">
+      </div>
+      <h3>Changi</h3>
+      <h2>Jimmy Timble, 27yrs</h2>
+      <a th:href="@{details}" class="btn">Show More</a>
+    </div>
+
+    <div class="box">
+      <div class="box-img">
+        <img th:src="@{/images/changi.jpg}" alt="changi">
+      </div>
+      <h3>Paris</h3>
+      <h2>Mike Bailey, 22yrs</h2>
+      <a th:href="@{details}" class="btn">Show More</a>
+    </div>
+
+    <div class="box">
+      <div class="box-img">
+        <img th:src="@{/images/changi.jpg}" alt="changi">
+      </div>
+      <h3>New York</h3>
+      <h2>Harry Manson, 30yrs</h2>
+      <a th:href="@{details}" class="btn">Show More</a>
+    </div>
+
+    <div class="box">
+      <div class="box-img">
+        <img th:src="@{/images/changi.jpg}" alt="changi">
+      </div>
+      <h3>Dubai</h3>
+      <h2>Gary Monroe, 21yrs</h2>
+      <a th:href="@{details}" class="btn">Show More</a>
+    </div>
+
+    <div class="box">
+      <div class="box-img">
+        <img th:src="@{/images/changi.jpg}" alt="changi">
+      </div>
+      <h3>London</h3>
+      <h2>Louise Adams, 26yrs</h2>
+      <a th:href="@{details}" class="btn">Show More</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

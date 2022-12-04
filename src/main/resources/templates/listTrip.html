@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" th:href="@{/style1.css}" />
+  <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.8.1/css/all.css}">
+  <link rel="stylesheet"
+        th:href="@{https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}">
+  <script th:src="@{/main.js}" defer></script>
+  <title>Registraion Form</title>
+</head>
+<body>
+<header id="everything">
+  <a th:href="@{index}" class="logo"><img th:src="@{/images/logo.png}" alt = "logo"></a>
+
+  <div class="bx bx-menu" id="menu-icon"></div>
+
+  <div class="header-btn">
+    <a th:href="@{userProfile}" style="font-size:1.3rem;"><i class="fas fa-user"></i></a>
+  </div>
+</header>
+
+<div class="space">
+  <p></p>
+</div>
+
+<div class="container">
+
+  <form th:action="@{addTrip}" method="post" class="form" enctype="multipart/form-data">
+    <h1 class="text-center" style="width: 100%";>Create your Trip</h1>
+    <!-- Progress bar -->
+    <div class="progressbar">
+      <div class="progress" id="progress"></div>
+
+      <div
+              class="progress-step progress-step-active"
+              data-title="Your&nbsp;Trip"
+      ></div>
+      <div class="progress-step" data-title="Your&nbsp;Trip"></div>
+      <div class="progress-step" data-title="Trip&nbsp;Availability"></div>
+      <div class="progress-step" data-title="Pictures"></div>
+    </div>
+
+
+    <!-- Steps -->
+    <div class="form-step form-step-active">
+      <div class="input-group">
+        <label for="trip_name">Trip Name</label>
+        <input type="text" name="trip_name" id="trip_name" required/>
+      </div>
+      <div class="input-group">
+        <label for="location">Location</label>
+        <input type="text" name="location" id="location" required/>
+      </div>
+      <div class="input-group">
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" required/>
+      </div>
+      <div class="input-group">
+        <label for="country">Country</label>
+        <input type="text" name="country" id="country" required/>
+      </div>
+      <div class="input-group">Check The Hobbies:<br>
+        <input type="checkbox" id="horsebackRiding" name="horsebackRiding" value="horsebackRiding">
+        <label for="horsebackRiding">Horseback Riding</label><br>
+        <input type="checkbox" id="kayaking" name="kayaking" value="kayaking">
+        <label for="kayaking">Kayaking</label><br>
+        <input type="checkbox" id="moutaineering" name="moutaineering" value="moutaineering">
+        <label for="moutaineering">Moutaineering</label><br>
+        <input type="checkbox" id="surfing" name="surfing" value="surfing">
+        <label for="surfing">Surfing</label><br>
+        <input type="checkbox" id="herbalism" name="herbalism" value="herbalism">
+        <label for="herbalism">Herbalism</label><br>
+      </div>
+      <div class="input-group">Check Languages You Speak:<br>
+        <input type="checkbox" id="english" name="english" value="english">
+        <label for="english">English</label><br>
+        <input type="checkbox" id="turkish" name="turkish" value="turkish">
+        <label for="turkish">Turkish</label><br>
+        <input type="checkbox" id="italian" name="italian" value="italian">
+        <label for="italian">Italian</label><br>
+        <input type="checkbox" id="french" name="french" value="french">
+        <label for="french">French</label><br>
+        <input type="checkbox" id="spanish" name="spanish" value="spanish">
+        <label for="spanish">Spanish</label><br>
+      </div>
+      <div class="input-group">Status: <br>
+        <input type="checkbox" id="active" name="active" value="active">
+        <label for="active">Active</label><br>
+      </div>
+      <div class="input-group">
+        <label for="pics">Upload Picture Cover For Your Trip : </label>
+        <input type="file" name="pics" id="pics" value="" placeholder="Pictures" multiple>
+      </div>
+      <br>
+      <div class="btns-group">
+        <input type="submit" value="Create" class="btn" />
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

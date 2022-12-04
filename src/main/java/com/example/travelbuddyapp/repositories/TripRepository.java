@@ -1,0 +1,14 @@
+package com.example.travelbuddyapp.repositories;
+
+
+        import com.example.travelbuddyapp.entities.Trip;
+        import org.springframework.data.jpa.repository.JpaRepository;
+
+        import java.util.List;
+
+public interface TripRepository extends JpaRepository<Trip,Long> {
+    List<Trip> findByModelContaining(String kw);
+    List<Trip> findTripByLocation(String location);
+    List<Trip> findByHobbies(String hobbies);
+    List<Trip> findByLanguge(String language);
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="" th:href="@{/styleProfile.css}">
+
+
+</head>
+<body>
+<div  class="container">
+  <div class="profile">
+    <img th:src="@{/images/profileAvatar.png}" class="profileAvatar">
+    <h1>Alison Victoria</h1>
+    <h3>Female</h3>
+    <p>01-01-1994</p>
+    <h3>Not Verified User</h3>
+    <br>
+    <div class = "signupForm">
+      <form action="" method="post">
+        <label for="fullName">Full Name</label>
+        <input type="text" name="fullName" id="fullName" value="Alison Victoria">
+        <label for="emailAddress">Email Address</label>
+        <input type="email" name="emailAddress" id="emailAddress" value="alisonvictoria1994@gmail.com">
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" value="XXXX XXX St, Delta, BC xxx xxx">
+        <label for="mobileNumber">Mobile Number</label>
+        <input type="text" name="mobileNumber" id="mobileNumber" value="XXX XXX XXXX">
+        <input type="submit" name="update" value="Edit Details">
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+<!--<div class="container-details">-->
+<!--  <div class="img_con-details">-->
+<!--    <img class="img-details" src="" alt="logo" />-->
+<!--    <div class="back-details"></div>-->
+<!--  </div>-->
+<!--  <h4 class="h4-details"></h4>-->
+<!--  <span class="span-details"></span>-->
+<!--  <p class="p-details"></p>-->
+<!--  <div>-->
+<!--    <button class="pre-details"><</button>-->
+<!--    <button class="next-details">></button>-->
+<!--  </div>-->
+<!--  <button class="sup-details">Surprise Me</button>-->
+<!--&lt;!&ndash;TODO https://codepen.io/ehsanshahbazii/pen/bGMKEGx &ndash;&gt;&ndash;&gt;-->
+<!--</div>-->
+
+<!--<script>-->
+<!--  const $ = document;-->
+<!--  let img = $.querySelector("img-details");-->
+<!--  let title = $.querySelector("h4-details");-->
+<!--  let span = $.querySelector("span-details");-->
+<!--  let text = $.querySelector("p-details");-->
+<!--  let pre = $.getElementsByClassName("pre-details")[0];-->
+<!--  let next = $.getElementsByClassName("next-details")[0];-->
+
+<!--  const data = [-->
+<!--    {-->
+<!--      id: 1,-->
+<!--      img: "https://randomuser.me/api/portraits/women/72.jpg",-->
+<!--      title: "lorem epson",-->
+<!--      span: "Web developer",-->
+<!--      text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ipsum dolor sit amet consecteturipsum dolor sit amet consectetur ",-->
+<!--    },-->
+
+<!--  ];-->
+
+<!--  let current = 1;-->
+
+<!--  // upload data in first-->
+<!--  window.onload = () => {-->
+<!--    setData(data);-->
+<!--  };-->
+
+<!--  // add pre logic-->
+<!--  pre.addEventListener("click", () => {-->
+<!--    if (current != 1) {-->
+<!--      current&#45;&#45;;-->
+<!--    } else {-->
+<!--      current = 4;-->
+<!--    }-->
+
+<!--    setData(data);-->
+<!--  });-->
+
+<!--  // add next logic-->
+<!--  next.addEventListener("click", () => {-->
+<!--    if (current != 4) {-->
+<!--      current++;-->
+<!--    } else {-->
+<!--      current = 1;-->
+<!--    }-->
+
+<!--    setData(data);-->
+<!--  });-->
+
+<!--  // set variables-->
+<!--  const setData = (arr) => {-->
+<!--    img.src = arr[current - 1].img;-->
+<!--    title.innerText = arr[current - 1].title;-->
+<!--    span.innerText = arr[current - 1].span;-->
+<!--    text.innerText = arr[current - 1].text;-->
+<!--  };-->
+
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+  <title>Travel Buddy</title>
+
+  <link rel="stylesheet" href="" th:href="@{/style.css}">
+  <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.8.1/css/all.css}">
+
+  <link rel="stylesheet"
+        th:href="@{https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}">
+
+</head>
+<body>
+<script>
+  function openLogForm(){
+    document.getElementById("LoginForm").style.display = "block";
+    document.getElementById("home").style.filter = "blur(2px)";
+    document.getElementById("ride").style.filter = "blur(2px)";
+    document.getElementById("services").style.filter = "blur(2px)";
+  }
+  function closeLogForm()
+  {
+    document.getElementById("LoginForm").style.display = "none";
+    document.getElementById("home").style.filter = "none";
+    document.getElementById("ride").style.filter = "none";
+    document.getElementById("services").style.filter = "none";
+  }
+</script>
+<!-- header -->
+<header id="everything">
+  <a th:href="@{index}" class="logo"><img class="rounded-circle mt-5" width="150px" src="" th:src="@{/images/logo.png}" alt = "logo"></a>
+
+  <div class="bx bx-menu" id="menu-icon"></div>
+
+  <ul class="navbar">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#locations">Locations</a></li>
+    <li><a href="#recentTrips">Recent Trips</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <div class="header-btn">
+    <a th:href="@{Register}" class="sign-up" >Sign Up</a>
+    <a th:href="@{loginPage}" class="sign-in" >Sign In</a>
+  </div>
+</header>
+
+<section class="home" id="home">
+  <form action="get"  th:action="@{search}">
+    <div class="input-box">
+      <span>Trip To</span>
+      <input type="search" name="keyword"  placeholder="Enter country name">
+    </div>
+    <div class="input-box">
+      <span>Starting Date</span>
+      <input type="date" name="">
+    </div>
+    <div class="input-box">
+      <span>Returning Date</span>
+      <input type="date" name="">
+    </div>
+    <input type="submit" name="" class="btn">
+  </form>
+</section>
+<!--Form-->
+
+<div class="wrapper" id="LoginForm">
+
+  <form class="form" method="post" th:action="@{login}" th:object="${user}" >
+    <div class="title">
+      Welcome Back!
+    </div>
+    <div class="input_field">
+      <input type="text" placeholder="Email" class="input" name="email" required>
+      <i class="far fa-envelope"></i>
+    </div>
+    <div class="input_field">
+      <input type="password" placeholder="Password" class="input" name="password" required>
+      <i class="fas fa-lock"></i>
+    </div>
+    <div class="btn" >
+      <button type="submit" class="btn" th:href="@{/login}">Sign In</button>
+    </div>
+    <div class="btn" >
+      <button type="button" class="btn" onclick="closeLogForm()">Close</button>
+    </div>
+
+  </form>
+</div>
+
+<!--about-->
+<section class="ride" id="about">
+  <div id="divCheckbox" style="display: none;">
+    <img src="/static/bg4.jpg" >
+  </div>
+  <div class="heading" style="color: white;">
+    <span>How it works</span>
+    <h1>Plan you trip in 3 steps:</h1>
+  </div>
+  <div class="ride-container">
+    <div class="box">
+      <i class='bx bxs-map'></i>
+      <h2>Choose A Location</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga consectetur et quae id deserunt quas asperiores reprehenderit dolore, odio amet adipisci. Sit nihil fuga quos, labore reiciendis ipsa ab cumque?</p>
+    </div>
+    <div class="box">
+      <i class='bx bxs-calendar-check'></i>
+      <h2>Set the Dates</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga consectetur et quae id deserunt quas asperiores reprehenderit dolore, odio amet adipisci. Sit nihil fuga quos, labore reiciendis ipsa ab cumque?</p>
+    </div>
+    <div class="box">
+      <i class='bx bxs-calendar-star' ></i>
+      <h2>Let Others To Join</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga consectetur et quae id deserunt quas asperiores reprehenderit dolore, odio amet adipisci. Sit nihil fuga quos, labore reiciendis ipsa ab cumque?</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="heading" style="color: white;">
+    <span>Search Trips</span>
+    <h1>Explore trips <br>from the following options</h1>
+  </div>
+  <div class="services-container">
+    <div class="box">
+      <div class="box-img">
+        <img th:src="@{/images/location.png}" alt="img1">
+      </div>
+      <h2></h2>
+      <a th:href="@{byLocation}" class="btn">Search by Location</a>
+    </div>
+
+    <div class="box">
+      <div class="box-img">
+        <img th:src="@{/images/hobbies.png}" alt="img1">
+      </div>
+      <h2></h2>
+      <a th:href="@{byHobbies}" class="btn">Search by Hobbies</a>
+    </div>
+
+    <div class="box">
+      <div class="box-img">
+        <img th:src="@{/images/languages.png}" alt="img1">
+      </div>
+      <h2></h2>
+      <a th:href="@{/byLanguage}" class="btn">Search by Language and Culture</a>
+    </div>
+  </div>
+</section>
+<section class="services" id="locations">
+  <div class="heading" style="color: white;">
+    <span>Most Popular Destinations</span>
+    <h1>Explore Trips <br>in these most popular destinations and find friends to travel with</h1>
+  </div>
+  <div class="services-container">
+
+    <div class="box">
+      <div class="box-img" style="color:white;">Azure Ads
+        <img th:src="@{/images/adsAzure.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img" style="color:white;">United Kingdom
+        <img th:src="@{/images/unitedKingdom.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img" style="color:white;">Australia
+        <img th:src="@{/images/australia.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img" style="color:white;">Egypt
+        <img th:src="@{/images/egypt.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img" style="color:white;">India
+        <img th:src="@{/images/india.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img" style="color:white;">Thailand
+        <img th:src="@{/images/thailand.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img"style="color:white;">Turkey
+        <img th:src="@{/images/turkey.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img"style="color:white;">Spain
+        <img th:src="@{/images/spain.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img"style="color:white;">France
+        <img th:src="@{/images/france.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img"style="color:white;">Russia
+        <img th:src="@{/images/russia.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img"style="color:white;">Italy
+        <img th:src="@{/images/italy.jpg}" alt="img1">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img"style="color:white;">Ukraine
+        <img th:src="@{/images/ukraine.jpg}" alt="img1">
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<section class="reviews" id="recentTrips">
+  <div class="heading" style="color: white;">
+    <span>Recent Trips</span>
+    <h1>Check out some recent trips the our users made:</h1>
+  </div>
+  <div class="reviews-container">
+    <div class="box">
+      <div class="rev-img">
+        <img src="rev1.jpg" th:src="@{/images/profileAvatar.png}" alt="">
+      </div>
+      <h2>Samir Gupta</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio magni reprehenderit dignissimos cupiditate laborum impedit sequi illum.</p>
+    </div>
+    <div class="box">
+      <div class="rev-img">
+        <img src="rev2.jpg" th:src="@{/images/profileAvatar.png}" alt="">
+      </div>
+      <h2>Anush</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio magni reprehenderit dignissimos cupiditate laborum impedit sequi illum.</p>
+    </div>
+    <div class="box">
+      <div class="rev-img">
+        <img src="rev3.jpg" th:src="@{/images/profileAvatar.png}" alt="">
+      </div>
+      <h2>Mike Bailey</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio magni reprehenderit dignissimos cupiditate laborum impedit sequi illum.</p>
+    </div>
+    <div class="box">
+      <div class="rev-img">
+        <img src="rev1.jpg" th:src="@{/images/profileAvatar.png}" alt="">
+      </div>
+      <h2>Louise</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio magni reprehenderit dignissimos cupiditate laborum impedit sequi illum.</p>
+    </div>
+    <div class="box">
+      <div class="rev-img">
+        <img src="rev2.jpg" th:src="@{/images/profileAvatar.png}" alt="">
+      </div>
+      <h2>Adam</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio magni reprehenderit dignissimos cupiditate laborum impedit sequi illum.</p>
+    </div>
+  </div>
+</section>
+<section class="reviews" id="reviews">
+  <div class="heading" style="color: white;">
+    <span>Reviews</span>
+    <h1>What our customers have to say</h1>
+  </div>
+  <div class="reviews-container">
+    <div class="box">
+      <div class="rev-img">
+        <img src="rev1.jpg" th:src="@{/images/profileAvatar.png}" alt="">
+      </div>
+      <h2>Enea Benji</h2>
+      <div class="stars">
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star-half'></i>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio magni reprehenderit dignissimos cupiditate laborum impedit sequi illum.</p>
+    </div>
+    <div class="box">
+      <div class="rev-img">
+        <img src="rev2.jpg" th:src="@{/images/profileAvatar.png}" alt="">
+      </div>
+      <h2>Krish Katyal</h2>
+      <div class="stars">
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star-half'></i>
+
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio magni reprehenderit dignissimos cupiditate laborum impedit sequi illum.</p>
+
+    </div>
+    <div class="box">
+      <div class="rev-img">
+        <img src="rev3.jpg" th:src="@{/images/profileAvatar.png}" alt="">
+      </div>
+      <h2>Anu Saji</h2>
+      <div class="stars">
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star'></i>
+        <i class='bx bxs-star-half'></i>
+
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque optio magni reprehenderit dignissimos cupiditate laborum impedit sequi illum.</p>
+
+    </div>
+  </div>
+</section>
+<div class="copyright">
+  <p>&#169; travelBuddy All Rights Reserved.</p>
+  <div class="social">
+    <a href="#"><i class="bx bxl-facebook"></i></a>
+    <a href="#"><i class="bx bxl-twitter"></i></a>
+    <a href="#"><i class="bx bxl-instagram"></i></a>
+  </div>
+</div>
+
+<!-- js  -->
+<script src = "main.js"></script>
+</body>
+</html>
